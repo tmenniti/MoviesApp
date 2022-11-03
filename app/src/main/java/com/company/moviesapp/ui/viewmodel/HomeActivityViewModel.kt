@@ -5,13 +5,16 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.company.moviesapp.data.model.MovieModel
 import com.company.moviesapp.domain.GetMoviesUseCase
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class HomeActivityViewModel : ViewModel() {
+@HiltViewModel
+class HomeActivityViewModel @Inject constructor(
+    private val getMoviesUseCase : GetMoviesUseCase
+) : ViewModel() {
 
     val mldMovies = MutableLiveData<List<MovieModel>>()
-
-    var getMoviesUseCase = GetMoviesUseCase()
 
     fun getMovies() {
         viewModelScope.launch {

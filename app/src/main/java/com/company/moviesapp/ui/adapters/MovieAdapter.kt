@@ -19,7 +19,7 @@ class MovieAdapter(
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_row_movies, parent, false)
 
-        return ViewHolder(view, context, moviesList)
+        return ViewHolder(view)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
@@ -36,7 +36,7 @@ class MovieAdapter(
         return moviesList.size
     }
 
-    class ViewHolder(view: View, context: Context, moviesList: List<MovieModel>) : RecyclerView.ViewHolder(view) {
+    class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val binding = ItemRowMoviesBinding.bind(view)
     }
 }

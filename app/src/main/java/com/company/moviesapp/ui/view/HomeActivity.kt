@@ -8,7 +8,9 @@ import com.company.moviesapp.data.model.MovieModel
 import com.company.moviesapp.databinding.ActivityHomeBinding
 import com.company.moviesapp.ui.adapters.MovieAdapter
 import com.company.moviesapp.ui.viewmodel.HomeActivityViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class HomeActivity : AppCompatActivity() {
 
     private var moviesList : List<MovieModel> = emptyList()
