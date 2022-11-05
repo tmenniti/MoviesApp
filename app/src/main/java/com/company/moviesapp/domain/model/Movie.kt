@@ -18,7 +18,7 @@ data class Movie(
     val vote_count: Int
 )
 
-fun MovieModel.toDomain() = Movie(
+fun MovieEntity.toDomain() = Movie(
     id,
     adult,
     backdrop_path,
@@ -33,12 +33,28 @@ fun MovieModel.toDomain() = Movie(
     vote_count
 )
 
-fun MovieEntity.toDomain() = Movie(
+fun MovieModel.toDomain() = MovieEntity(
     id,
     adult,
     backdrop_path,
     original_title,
     original_language,
+    overview,
+    popularity,
+    poster_path,
+    release_date,
+    title,
+    vote_average,
+    vote_count
+)
+
+fun Movie.toDomain() = MovieModel(
+    id,
+    adult,
+    backdrop_path,
+    original_title,
+    original_language,
+    arrayListOf(),
     overview,
     popularity,
     poster_path,

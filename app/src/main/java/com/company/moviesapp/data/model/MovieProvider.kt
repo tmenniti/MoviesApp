@@ -6,4 +6,5 @@ import javax.inject.Singleton
 @Singleton
 class MovieProvider @Inject constructor() {
     var movies : List<MovieModel> = emptyList()
+    var genres : List<GenreModel> = emptyList()
 }

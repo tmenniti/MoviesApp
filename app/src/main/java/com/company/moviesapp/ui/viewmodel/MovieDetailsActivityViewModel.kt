@@ -6,7 +6,7 @@ import androidx.lifecycle.viewModelScope
 import com.company.moviesapp.data.database.entities.MovieEntity
 import com.company.moviesapp.domain.GetLocalMoviesUseCase
 import com.company.moviesapp.domain.SaveMovieUseCase
-import com.company.moviesapp.domain.model.DeleteMovieUseCase
+import com.company.moviesapp.domain.DeleteMovieUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject

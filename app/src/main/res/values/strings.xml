@@ -1,12 +1,24 @@
 <resources>
     <string name="app_name">MoviesApp</string>
 
+    <string name="connection_error">You are not connected to the internet</string>
+
     <string name="top_movies">Top Movies</string>
     <string name="favorites">Favorites</string>
 
+    <string name="movie_details">Movie details</string>
+    <string name="original_language">Original language</string>
+    <string name="genre">Genre</string>
+    <string name="qualification">Qualification</string>
     <string name="add_to_favorites">Add to favorites</string>
     <string name="delete_from_favorites">Delete from favorites</string>
     <string name="movie_added">Movie added to favorites</string>
     <string name="movie_deleted">Movie deleted from favorites</string>
+
+    <string name="delete_movie">Delete movie</string>
+    <string name="sure_delete">Are you sure you want to remove this movie from favorites?</string>
+    <string name="accept">Accept</string>
+    <string name="cancel">Cancel</string>
+    <string name="search">Search</string>
 
 </resources>

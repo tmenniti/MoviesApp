@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="zero_dp">0dp</dimen>
+    <dimen name="one_dp">1dp</dimen>
     <dimen name="small_margin">5dp</dimen>
     <dimen name="small_margin2">10dp</dimen>
     <dimen name="normal_margin">20dp</dimen>
     <dimen name="large_margin">30dp</dimen>
     <dimen name="large_margin2">40dp</dimen>
+    <dimen name="large_margin3">50dp</dimen>
     <dimen name="small_size">100dp</dimen>
     <dimen name="medium_size">150dp</dimen>
     <dimen name="circle_size">300dp</dimen>

@@ -1,4 +1,4 @@
-package com.company.moviesapp.domain.model
+package com.company.moviesapp.domain
 
 import com.company.moviesapp.data.MovieRepository
 import com.company.moviesapp.data.database.entities.MovieEntity

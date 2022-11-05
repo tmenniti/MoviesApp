@@ -2,6 +2,7 @@ package com.company.moviesapp.data
 
 import com.company.moviesapp.data.database.dao.MovieDao
 import com.company.moviesapp.data.database.entities.MovieEntity
+import com.company.moviesapp.data.model.GenreModel
 import com.company.moviesapp.data.model.MovieProvider
 import com.company.moviesapp.data.model.MovieResponse
 import com.company.moviesapp.data.network.MovieService
@@ -15,15 +16,21 @@ class MovieRepository @Inject constructor(
     private val movieDao: MovieDao
 ) {
 
+    suspend fun getLocalMovies(): List<Movie> {
+        val response: List<MovieEntity> = movieDao.getMovies()
+        return response.map { it.toDomain() }
+    }
+
     suspend fun getMovies(): MovieResponse {
         val response = api.getMovies()
         movieProvider.movies = response.results
         return response
     }
 
-    suspend fun getLocalMovies(): List<Movie> {
-        val response: List<MovieEntity> = movieDao.getMovies()
-        return response.map { it.toDomain() }
+    suspend fun getGenres(): List<GenreModel> {
+        val response = api.getGenres()
+        movieProvider.genres = response
+        return response
     }
 
     suspend fun saveMovie(movie : MovieEntity) {

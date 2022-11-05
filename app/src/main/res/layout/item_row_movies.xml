@@ -40,7 +40,7 @@
                 android:layout_marginStart="@dimen/small_margin2"
                 android:layout_marginEnd="@dimen/small_margin2"
                 android:layout_marginBottom="@dimen/small_margin2"
-                android:textColor="@color/white"
+                android:textColor="@color/onlyWhite"
                 android:textSize="@dimen/medium_text_size"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="@+id/imgMovie"

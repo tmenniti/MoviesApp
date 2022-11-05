@@ -2,15 +2,16 @@ package com.company.moviesapp.ui.view
 
 import android.os.Bundle
 import androidx.activity.viewModels
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import com.company.moviesapp.R
 import com.company.moviesapp.core.IMAGES_BASE_URL
 import com.company.moviesapp.core.setImageGlide
 import com.company.moviesapp.core.showToast
-import com.company.moviesapp.data.database.entities.MovieEntity
 import com.company.moviesapp.data.model.MovieModel
 import com.company.moviesapp.databinding.ActivityMovieDetailsBinding
+import com.company.moviesapp.domain.model.toDomain
 import com.company.moviesapp.ui.viewmodel.MovieDetailsActivityViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -29,16 +30,9 @@ class MovieDetailsActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         setObservers()
+        setEventsListeners()
         getMovies()
         setViewsInformation()
-
-        binding.btFavorite.setOnClickListener {
-            if (isFavorite()) {
-                viewModel.deleteMovie(getMovieEntity())
-            } else {
-                viewModel.saveMovie(getMovieEntity())
-            }
-        }
     }
 
     private fun setObservers() {
@@ -55,6 +49,28 @@ class MovieDetailsActivity : AppCompatActivity() {
         }
     }
 
+    private fun setEventsListeners() {
+        binding.imgBack.setOnClickListener {
+            onBackPressed()
+        }
+
+        binding.btFavorite.setOnClickListener {
+            if (isFavorite()) {
+                val confDialog: AlertDialog =
+                    AlertDialog.Builder(this)
+                        .setTitle(resources.getString(R.string.delete_movie))
+                        .setMessage(resources.getString(R.string.sure_delete))
+                        .setPositiveButton(resources.getString(R.string.accept)) { dialog, which ->
+                            viewModel.deleteMovie(movie.toDomain())
+                        }.setNegativeButton(resources.getString(R.string.cancel)) { dialog, which ->
+                            dialog.dismiss()
+                        }.show()
+            } else {
+                viewModel.saveMovie(movie.toDomain())
+            }
+        }
+    }
+
     private fun getMovies() {
         movie = intent.getSerializableExtra("movie") as MovieModel
         favoritesIdsList = intent.getIntegerArrayListExtra("favoritesIdsList") as ArrayList<Int>
@@ -65,6 +81,10 @@ class MovieDetailsActivity : AppCompatActivity() {
         binding.tvMovie.text = movie.title
         binding.tvReleaseDate.text = movie.release_date
         binding.tvDescription.text = movie.overview
+
+        binding.tvLanguage.text = movie.original_language
+        val qualification = "★ " + movie.vote_average.toString()
+        binding.tvQualification.text = qualification
 
         if (isFavorite()) {
             setDeleteButton()
@@ -98,22 +118,5 @@ class MovieDetailsActivity : AppCompatActivity() {
             }
         }
         return false
-    }
-
-    private fun getMovieEntity(): MovieEntity {
-        return MovieEntity(
-            movie.id,
-            movie.adult,
-            movie.backdrop_path,
-            movie.original_title,
-            movie.original_title,
-            movie.overview,
-            movie.popularity,
-            movie.poster_path,
-            movie.release_date,
-            movie.title,
-            movie.vote_average,
-            movie.vote_count
-        )
     }
 }

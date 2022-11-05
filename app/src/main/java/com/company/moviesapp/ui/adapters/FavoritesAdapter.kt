@@ -10,10 +10,13 @@ import com.company.moviesapp.core.IMAGES_BASE_URL
 import com.company.moviesapp.core.setImageGlide
 import com.company.moviesapp.databinding.ItemRowFavoritesBinding
 import com.company.moviesapp.domain.model.Movie
+import com.company.moviesapp.domain.model.toDomain
+import com.company.moviesapp.ui.interfaces.MovieInterface
 
 class FavoritesAdapter(
     private val context: Context,
-    private val favoritesMoviesList: List<Movie>
+    private val favoritesMoviesList: List<Movie>,
+    private val movieInterface: MovieInterface
 ) : RecyclerView.Adapter<FavoritesAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -23,9 +26,13 @@ class FavoritesAdapter(
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val movieBackdropPath : String = favoritesMoviesList[position].backdrop_path
+        val posterPath : String = favoritesMoviesList[position].poster_path
 
-        context.setImageGlide(IMAGES_BASE_URL + movieBackdropPath, holder.binding.imgMovie)
+        context.setImageGlide(IMAGES_BASE_URL + posterPath, holder.binding.imgMovie)
+
+        holder.binding.imgMovie.setOnClickListener {
+            movieInterface.onFavoriteClicked(favoritesMoviesList[position].toDomain())
+        }
     }
 
     override fun getItemCount(): Int {

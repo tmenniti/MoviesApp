@@ -10,13 +10,49 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintTopBar"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/large_margin3"
+            android:background="@color/white"
+            android:elevation="@dimen/small_margin2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/imgBack"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/normal_margin"
+                android:background="?selectableItemBackgroundBorderless"
+                android:src="@drawable/ic_left_arrow"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tvMovieDetails"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/normal_margin"
+                android:text="@string/movie_details"
+                android:textColor="@color/black"
+                android:textSize="@dimen/large_text_size"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/imgBack"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
         <ImageView
             android:id="@+id/imgMovie"
             android:layout_width="match_parent"
             android:layout_height="@dimen/circle_size"
+            android:layout_marginTop="@dimen/normal_margin"
             android:scaleType="fitXY"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/constraintTopBar"
             tools:src="@drawable/ic_launcher_background" />
 
         <TextView
@@ -36,10 +72,9 @@
             android:id="@+id/tvReleaseDate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/normal_margin"
             android:textColor="@color/black"
             android:textSize="@dimen/large_text_size"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/tvMovie"
             app:layout_constraintTop_toBottomOf="@+id/tvMovie"
             tools:text="2011" />
 
@@ -47,16 +82,105 @@
             android:id="@+id/tvDescription"
             android:layout_width="@dimen/zero_dp"
             android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/normal_margin"
+            android:layout_marginEnd="@dimen/normal_margin"
+            android:lineSpacingExtra="@dimen/small_margin"
+            android:textColor="@color/black"
+            android:textSize="@dimen/medium_text_size"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/tvMovie"
+            app:layout_constraintTop_toBottomOf="@+id/tvReleaseDate"
+            tools:text="Breaking Bad is an American drama television series created and produced by Vince Gilligan. Tells the story of Walter White" />
+
+        <View
+            android:id="@+id/viewBar1"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/one_dp"
             android:layout_marginStart="@dimen/normal_margin"
             android:layout_marginTop="@dimen/normal_margin"
             android:layout_marginEnd="@dimen/normal_margin"
-            android:textColor="@color/black"
-            android:textSize="@dimen/medium_text_size"
-            android:lineSpacingExtra="@dimen/small_margin"
+            android:background="@color/gray"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvReleaseDate"
-            tools:text="Breaking Bad is an American drama television series created and produced by Vince Gilligan. Tells the story of Walter White" />
+            app:layout_constraintTop_toBottomOf="@+id/tvDescription" />
+
+        <TextView
+            android:id="@+id/tvOriginalLanguage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/normal_margin"
+            android:text="@string/original_language"
+            android:textSize="@dimen/medium_text_size"
+            app:layout_constraintStart_toStartOf="@id/tvMovie"
+            app:layout_constraintTop_toBottomOf="@+id/viewBar1" />
+
+        <TextView
+            android:id="@+id/tvLanguage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/normal_margin"
+            android:textColor="@color/black"
+            android:textSize="@dimen/medium_text_size"
+            app:layout_constraintBottom_toBottomOf="@+id/tvOriginalLanguage"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tvOriginalLanguage"
+            tools:text="English" />
+
+        <TextView
+            android:id="@+id/tvGenreTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/normal_margin"
+            android:text="@string/genre"
+            android:textSize="@dimen/medium_text_size"
+            app:layout_constraintStart_toStartOf="@id/tvMovie"
+            app:layout_constraintTop_toBottomOf="@+id/tvOriginalLanguage" />
+
+        <TextView
+            android:id="@+id/tvGenre"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/normal_margin"
+            android:textColor="@color/black"
+            android:textSize="@dimen/medium_text_size"
+            app:layout_constraintBottom_toBottomOf="@+id/tvGenreTitle"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tvGenreTitle"
+            tools:text="Action" />
+
+        <TextView
+            android:id="@+id/tvQualificationTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/normal_margin"
+            android:text="@string/qualification"
+            android:textSize="@dimen/medium_text_size"
+            app:layout_constraintStart_toStartOf="@id/tvMovie"
+            app:layout_constraintTop_toBottomOf="@+id/tvGenre" />
+
+        <TextView
+            android:id="@+id/tvQualification"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/normal_margin"
+            android:textColor="@color/black"
+            android:textSize="@dimen/medium_text_size"
+            app:layout_constraintBottom_toBottomOf="@+id/tvQualificationTitle"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tvQualificationTitle"
+            tools:text="★ 4.7" />
+
+        <View
+            android:id="@+id/viewBar2"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/one_dp"
+            android:layout_marginStart="@dimen/normal_margin"
+            android:layout_marginTop="@dimen/normal_margin"
+            android:layout_marginEnd="@dimen/normal_margin"
+            android:background="@color/gray"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvQualificationTitle" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btFavorite"
@@ -66,15 +190,15 @@
             android:layout_marginTop="@dimen/large_margin2"
             android:layout_marginEnd="@dimen/normal_margin"
             android:layout_marginBottom="@dimen/large_margin2"
-            android:background="@drawable/black_bordered_rectangle_background"
-            android:text="@string/add_to_favorites"
+            android:background="@drawable/blue_bordered_rectangle_background"
             android:textAllCaps="false"
             android:textColor="@color/white"
             android:textSize="@dimen/large_text_size"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvDescription" />
+            app:layout_constraintTop_toBottomOf="@+id/viewBar2"
+            tools:text="@string/add_to_favorites" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
