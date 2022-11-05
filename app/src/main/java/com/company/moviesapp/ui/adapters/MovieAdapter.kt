@@ -10,10 +10,12 @@ import com.company.moviesapp.core.IMAGES_BASE_URL
 import com.company.moviesapp.core.setImageGlide
 import com.company.moviesapp.data.model.MovieModel
 import com.company.moviesapp.databinding.ItemRowMoviesBinding
+import com.company.moviesapp.ui.interfaces.MovieInterface
 
 class MovieAdapter(
     private val context: Context,
-    private val moviesList: List<MovieModel>
+    private val moviesList: List<MovieModel>,
+    private val movieInterface: MovieInterface
 ) : RecyclerView.Adapter<MovieAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -30,6 +32,10 @@ class MovieAdapter(
         holder.binding.tvMovie.text = movieTitle
         holder.binding.tvGenre.text = movieGenre.toString()
         context.setImageGlide(IMAGES_BASE_URL + movieBackdropPath, holder.binding.imgMovie)
+
+        holder.binding.cvMovie.setOnClickListener {
+            movieInterface.onMovieClicked(moviesList[position])
+        }
     }
 
     override fun getItemCount(): Int {

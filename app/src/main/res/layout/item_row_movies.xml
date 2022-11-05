@@ -6,6 +6,7 @@
     android:layout_height="wrap_content">
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/cvMovie"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/normal_margin"
@@ -26,7 +27,7 @@
             <ImageView
                 android:id="@+id/imgMovie"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/image_height"
+                android:layout_height="@dimen/medium_size"
                 android:scaleType="fitXY"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
@@ -40,7 +41,7 @@
                 android:layout_marginEnd="@dimen/small_margin2"
                 android:layout_marginBottom="@dimen/small_margin2"
                 android:textColor="@color/white"
-                android:textSize="@dimen/medium_text_height"
+                android:textSize="@dimen/medium_text_size"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="@+id/imgMovie"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -57,7 +58,7 @@
                 android:background="@drawable/black_bordered_rectangle_background"
                 android:padding="@dimen/small_margin"
                 android:textColor="@color/white"
-                android:textSize="@dimen/small_text_height"
+                android:textSize="@dimen/small_text_size"
                 app:layout_constraintEnd_toEndOf="@+id/imgMovie"
                 app:layout_constraintTop_toTopOf="@+id/imgMovie"
                 tools:text="ACTION" />

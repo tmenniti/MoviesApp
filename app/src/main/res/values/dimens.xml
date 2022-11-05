@@ -6,10 +6,12 @@
     <dimen name="normal_margin">20dp</dimen>
     <dimen name="large_margin">30dp</dimen>
     <dimen name="large_margin2">40dp</dimen>
-    <dimen name="image_height">150dp</dimen>
+    <dimen name="small_size">100dp</dimen>
+    <dimen name="medium_size">150dp</dimen>
     <dimen name="circle_size">300dp</dimen>
 
-    <dimen name="small_text_height">12sp</dimen>
-    <dimen name="normal_text_height">14sp</dimen>
-    <dimen name="medium_text_height">16sp</dimen>
+    <dimen name="small_text_size">12sp</dimen>
+    <dimen name="normal_text_size">14sp</dimen>
+    <dimen name="medium_text_size">16sp</dimen>
+    <dimen name="large_text_size">18sp</dimen>
 </resources>

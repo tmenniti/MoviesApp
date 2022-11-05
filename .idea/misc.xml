@@ -5,10 +5,14 @@
       <map>
         <entry key="..\:/Users/tmenniti/AndroidStudioProjects/MoviesApp/app/src/main/res/drawable-v24/black_bordered_rectangle_background.xml" value="0.1" />
         <entry key="..\:/Users/tmenniti/AndroidStudioProjects/MoviesApp/app/src/main/res/drawable-v24/gray_circle_background.xml" value="0.1" />
+        <entry key="..\:/Users/tmenniti/AndroidStudioProjects/MoviesApp/app/src/main/res/drawable/blue_bordered_rectangle_background.xml" value="0.1" />
         <entry key="..\:/Users/tmenniti/AndroidStudioProjects/MoviesApp/app/src/main/res/drawable/gray_circle_background.xml" value="0.142" />
         <entry key="..\:/Users/tmenniti/AndroidStudioProjects/MoviesApp/app/src/main/res/drawable/ic_launcher_foreground.xml" value="0.1" />
+        <entry key="..\:/Users/tmenniti/AndroidStudioProjects/MoviesApp/app/src/main/res/drawable/yellow_bordered_rectangle_background.xml" value="0.1" />
         <entry key="..\:/Users/tmenniti/AndroidStudioProjects/MoviesApp/app/src/main/res/layout/activity_home.xml" value="0.22" />
         <entry key="..\:/Users/tmenniti/AndroidStudioProjects/MoviesApp/app/src/main/res/layout/activity_main.xml" value="0.1796875" />
+        <entry key="..\:/Users/tmenniti/AndroidStudioProjects/MoviesApp/app/src/main/res/layout/activity_movie_details.xml" value="0.12" />
+        <entry key="..\:/Users/tmenniti/AndroidStudioProjects/MoviesApp/app/src/main/res/layout/item_row_favorites.xml" value="0.1796875" />
         <entry key="..\:/Users/tmenniti/AndroidStudioProjects/MoviesApp/app/src/main/res/layout/item_row_movies.xml" value="0.22" />
       </map>
     </option>

@@ -12,6 +12,31 @@
         android:layout_height="wrap_content">
 
         <TextView
+            android:id="@+id/tvFavorites"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/normal_margin"
+            android:layout_marginTop="@dimen/normal_margin"
+            android:text="@string/favorites"
+            android:textColor="@color/black"
+            android:textSize="@dimen/medium_text_size"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvFavorites"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/small_margin2"
+            android:orientation="horizontal"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvFavorites"
+            tools:itemCount="4"
+            tools:listitem="@layout/item_row_favorites" />
+
+        <TextView
             android:id="@+id/tvTopMovies"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -19,10 +44,10 @@
             android:layout_marginTop="@dimen/normal_margin"
             android:text="@string/top_movies"
             android:textColor="@color/black"
-            android:textSize="@dimen/medium_text_height"
+            android:textSize="@dimen/medium_text_size"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/rvFavorites" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvMovies"
@@ -31,7 +56,9 @@
             android:layout_marginTop="@dimen/small_margin2"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvTopMovies" />
+            app:layout_constraintTop_toBottomOf="@+id/tvTopMovies"
+            tools:itemCount="3"
+            tools:listitem="@layout/item_row_movies" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

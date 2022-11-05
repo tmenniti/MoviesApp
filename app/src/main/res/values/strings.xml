@@ -2,4 +2,11 @@
     <string name="app_name">MoviesApp</string>
 
     <string name="top_movies">Top Movies</string>
+    <string name="favorites">Favorites</string>
+
+    <string name="add_to_favorites">Add to favorites</string>
+    <string name="delete_from_favorites">Delete from favorites</string>
+    <string name="movie_added">Movie added to favorites</string>
+    <string name="movie_deleted">Movie deleted from favorites</string>
+
 </resources>
